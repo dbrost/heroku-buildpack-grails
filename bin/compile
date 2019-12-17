@@ -44,6 +44,14 @@ Thanks,
 Heroku"
 }
 
+jdk_overlay() {
+  baseDir=$1
+  shopt -s dotglob
+  if [ -d ${baseDir}/.jdk ] && [ -d ${baseDir}/.jdk-overlay ]; then
+    cp -r ${baseDir}/.jdk-overlay/* ${baseDir}/.jdk/
+  fi 
+}
+
 validate_grails_version() {
   local grailsVersion=${1}
 
